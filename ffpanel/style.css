@@ -1,0 +1,451 @@
+
+:root {
+  --bg: #090b12;
+  --panel: #141927;
+  --neon: #00ffe1;
+  --text: #f2f6ff;
+  --muted: #9ba7bd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top, #15313c 0%, transparent 45%),
+    var(--bg);
+}
+
+.app-header {
+  text-align: center;
+  padding: 42px 16px 30px;
+  animation: fadeIn 0.8s ease;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: var(--neon);
+  font-size: clamp(38px, 8vw, 60px);
+  letter-spacing: 5px;
+  text-shadow: 0 0 20px #00ffe177;
+}
+
+.app-header p {
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+
+main {
+  width: min(900px, 92%);
+  margin: 0 auto 40px;
+  display: grid;
+  gap: 22px;
+}
+
+.settings-card {
+  padding: 26px;
+  border: 1px solid #303b50;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #171d2d, #0e121d);
+  box-shadow: 0 12px 35px #0005;
+  animation: fadeIn 0.7s ease both;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.settings-card:hover {
+  border-color: var(--neon);
+  transform: translateY(-3px);
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  color: var(--neon);
+}
+
+.subtitle {
+  color: var(--muted);
+}
+
+#settings {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.setting-row {
+  display: grid;
+  gap: 12px;
+}
+
+.setting-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.setting-value {
+  color: var(--neon);
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--neon);
+  cursor: pointer;
+}
+
+button {
+  padding: 12px 18px;
+  border: 1px solid var(--neon);
+  border-radius: 10px;
+  background: #00ffe114;
+  color: var(--neon);
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: var(--neon);
+  color: #071014;
+  box-shadow: 0 0 18px #00ffe155;
+  transform: translateY(-1px);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#aimToggleBtn.active {
+  background: var(--neon);
+  color: #071014;
+}
+
+#settingsMessage,
+#aimToggleMessage {
+  color: var(--muted);
+  min-height: 20px;
+}
+
+footer {
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid #222a3a;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .settings-card {
+    padding: 18px;
+  }
+
+  .button-group button {
+    flex: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+.lock-panel[hidden] {
+  display: none;
+}
+
+.panel-lock-button {
+  margin-top: 12px;
+}
+
+.lock-panel {
+  border-color: var(--neon);
+}
+
+.lock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.lock-row .subtitle {
+  margin-bottom: 0;
+}
+
+#aimLockBtn.is-on {
+  background: var(--neon);
+  color: #071014;
+  box-shadow: 0 0 18px #00ffe155;
+}
+
+
+/* HackyX Panel Lock - upgraded design */
+
+.lock-panel[hidden] {
+  display: none !important;
+}
+
+.lock-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid #00ffe188;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at top right, #00ffe11b, transparent 55%),
+    linear-gradient(145deg, #171f30, #0b101b);
+  box-shadow:
+    0 0 25px #00ffe114,
+    inset 0 0 20px #00ffe108;
+  animation: lockReveal 0.35s ease-out;
+}
+
+.lock-panel h2 {
+  margin-top: 0;
+  color: #48f7e8;
+  letter-spacing: 1px;
+}
+
+.lock-panel .subtitle {
+  color: #9ba7bd;
+}
+
+.lock-panel .lock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 26px 0 18px;
+  padding: 18px;
+  border: 1px solid #ffffff14;
+  border-radius: 14px;
+  background: #ffffff06;
+}
+
+.lock-row strong {
+  display: block;
+  color: #f2f6ff;
+  font-size: 16px;
+}
+
+.lock-row .subtitle {
+  margin: 6px 0 0;
+  font-size: 12px;
+}
+
+#aimLockBtn {
+  min-width: 82px;
+  border: 1px solid #778197;
+  border-radius: 999px;
+  background: #252b3a;
+  color: #c3ccdc;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: all 0.25s ease;
+}
+
+#aimLockBtn.is-on {
+  border-color: #48f7e8;
+  background: #48f7e8;
+  color: #071014;
+  box-shadow: 0 0 20px #48f7e855;
+}
+
+#aimLockMessage {
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #ffffff06;
+  color: #9ba7bd;
+  font-size: 13px;
+}
+
+#closeLockBtn {
+  width: 100%;
+  margin-top: 8px;
+  border-color: #394257;
+  background: #ffffff08;
+  color: #dce4f4;
+}
+
+#closeLockBtn:hover {
+  border-color: #48f7e8;
+  color: #48f7e8;
+  background: #48f7e80d;
+}
+
+.panel-lock-button {
+  margin-top: 14px;
+}
+
+#panelLockBtn {
+  width: 100%;
+  min-height: 46px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+@keyframes lockReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lock-panel,
+  #aimLockBtn {
+    animation: none;
+    transition: none;
+  }
+}
+
+
+/* HackyX Target Lab */
+.aim-demo {
+  margin-top: 22px;
+}
+
+.aim-demo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--neon);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+#demoStatus {
+  padding: 6px 9px;
+  border: 1px solid #526078;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+#demoStatus.locked {
+  border-color: var(--neon);
+  box-shadow: 0 0 12px #48f7e844;
+}
+
+.aim-arena {
+  position: relative;
+  height: 290px;
+  overflow: hidden;
+  border: 1px solid #48f7e866;
+  border-radius: 14px;
+  background-color: #080d16;
+  background-image:
+    linear-gradient(#48f7e811 1px, transparent 1px),
+    linear-gradient(90deg, #48f7e811 1px, transparent 1px);
+  background-size: 25px 25px;
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+
+.demo-target {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 2px solid #ff526d;
+  border-radius: 50%;
+  background: #ff526d22;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px #ff526d66;
+}
+
+.demo-target::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #ff526d;
+  border-radius: 50%;
+}
+
+.demo-target.selected {
+  border-color: var(--neon);
+  box-shadow: 0 0 18px #48f7e8aa;
+}
+
+.demo-crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--neon);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 12px #48f7e855;
+}
+
+.demo-crosshair::before,
+.demo-crosshair::after {
+  content: "";
+  position: absolute;
+  background: var(--neon);
+}
+
+.demo-crosshair::before {
+  width: 46px;
+  height: 1px;
+  left: -8px;
+  top: 15px;
+}
+
+.demo-crosshair::after {
+  width: 1px;
+  height: 46px;
+  left: 15px;
+  top: -8px;
+}
+
+.demo-crosshair span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  left: 13px;
+  top: 13px;
+  border-radius: 50%;
+  background: white;
+}
+
+#demoScore {
+  color: var(--neon);
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  .aim-arena {
+    height: 240px;
+  }
+}

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101116">
+  <meta name="description" content="HackyX Gaming Settings Panel">
+  <title>HackyX Gaming Panel</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header class="app-header">
+    <h1>HackyX</h1>
+    <p>Gaming Settings Panel</p>
+  </header>
+
+  <main>
+    <!-- Sensitivity Settings -->
+    <section class="settings-card">
+      <h2>Sensitivity Settings</h2>
+      <p class="subtitle">
+        Adjust the values to your preference.
+      </p>
+
+      <div id="settings"></div>
+
+      <div class="button-group">
+        <button id="saveBtn" type="button">
+          Save Settings
+        </button>
+
+        <button id="resetBtn" type="button">
+          Reset Settings
+        </button>
+      </div>
+      
+      <div class="panel-lock-button">
+  <button id="panelLockBtn" type="button">
+    Panel Lock
+  </button>
+</div>
+
+<section id="panelLockUI" class="settings-card lock-panel" hidden>
+  <h2>Panel Lock</h2>
+
+  <div class="lock-row">
+    <span>Aim Lock</span>
+    <button id="aimLockBtn" type="button" aria-pressed="false">
+      OFF
+    </button>
+  </div>
+
+  <p id="aimLockMessage">Aim Lock is OFF.</p>
+  
+<div class="aim-demo">
+  <div class="aim-demo-header">
+    <strong>HACKYX TARGET LAB</strong>
+    <span id="demoStatus">FREE AIM</span>
+  </div>
+
+  <p class="subtitle">
+    Click or move your crosshair around the practice arena.
+  </p>
+
+  <div id="aimArena" class="aim-arena" tabindex="0"
+       aria-label="Interactive target practice arena">
+    <button class="demo-target" type="button"
+            style="left: 22%; top: 30%" aria-label="Target 1"></button>
+    <button class="demo-target" type="button"
+            style="left: 70%; top: 25%" aria-label="Target 2"></button>
+    <button class="demo-target" type="button"
+            style="left: 48%; top: 70%" aria-label="Target 3"></button>
+
+    <div id="demoCrosshair" class="demo-crosshair">
+      <span></span>
+    </div>
+  </div>
+
+  <p id="demoScore" role="status" aria-live="polite">
+    Targets selected: 0
+  </p>
+</div>
+
+
+  <button id="closeLockBtn" type="button">Close</button>
+</section>
+
+      <p id="settingsMessage" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Background Timer -->
+    <section class="settings-card">
+      <h2>Background Timer</h2>
+
+      <p class="subtitle">
+        Start or stop the timer in your local HackyX C# app.
+      </p>
+
+      <button
+        id="aimToggleBtn"
+        type="button"
+        aria-pressed="false"
+      >
+        Start Timer
+      </button>
+
+      <p id="aimToggleMessage" role="status" aria-live="polite">
+        Timer is stopped.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>HackyX &bull; Your personal gaming companion</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
